@@ -12,14 +12,9 @@ export class RandomUserComponent {
   randomResults: Results | undefined;
   @Input() randomContact: IRandomContact| undefined;
 
-  constructor(private randomUserService: RandomUserService){}
+  constructor(){}
 
   ngOnInit(): void {
-    this.randomUserService.obtenerRandomContact().subscribe((response: Results)=>{
-
-      this.randomContact= response.results[0];
-      console.table(this.randomContact.name);
-    })
 
   }
 

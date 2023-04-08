@@ -3,6 +3,9 @@
 <ng-container *ngIf="randomContact; else noContact">
   <h3 *ngIf="randomContact">
    <mat-card class="random-contacts-card">
+    <div mat-card-avatar class="random-contact-avatar">
+      <img [src]="randomContact.picture.thumbnail" alt="">
+    </div>
   <mat-card-header>
     <!-- <div mat-card-avatar class="example-header-image"></div> -->
     <mat-card-title>
