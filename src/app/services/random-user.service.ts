@@ -31,10 +31,13 @@ export class RandomUserService {
     );
   }
 
-  obtenerRandomContacts(n: number): Observable<Results[]>{
-    const params: HttpParams = new HttpParams().set("results",n);
+  obtenerRandomContacts(n: number, sexo?: string): Observable<Results>{
+    let params: HttpParams = new HttpParams().set("results",n);
 
-    return this.http.get<Results[]>('https://randomuser.me/api', {params: params}).pipe(
+    if(sexo){
+      params= params.append("gender",sexo);
+    }
+    return this.http.get<Results>('https://randomuser.me/api', {params: params}).pipe(
       retry(2), //Nº de reintentos de peticiones
       catchError(this.handleError) //sacamos error se algo falla
     );
@@ -42,7 +45,7 @@ export class RandomUserService {
 
   }
 
-  obtenerRandomContactsPorGenero(sexo: string): Observable<Results>{
+  /*obtenerRandomContactsPorGenero(n: number, sexo: string): Observable<Results>{
     const params: HttpParams = new HttpParams().set("results",sexo);
 
     return this.http.get<Results>('https://randomuser.me/api', {params: params}).pipe(
@@ -50,5 +53,5 @@ export class RandomUserService {
       catchError(this.handleError) //sacamos error se algo falla
     );
 
-  }
+  }*/
 }

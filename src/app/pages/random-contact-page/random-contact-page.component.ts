@@ -46,7 +46,7 @@ export class RandomContactPageComponent {
 
     this.randomUserService.obtenerRandomContacts(n).subscribe(
       {
-        next: (response: Results[])=>{
+        next: (response: Results)=>{
           console.log(response)
          // this.contact=response.results[0]; //se lo pasaremos al RandomContact
 
@@ -54,7 +54,7 @@ export class RandomContactPageComponent {
         error: (error)=>console.error(`${error}`),
         complete: () =>console.info('Petición de random contacts terminada')
       }
-    )
+    );
   }
 
 

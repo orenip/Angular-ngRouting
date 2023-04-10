@@ -2,6 +2,7 @@ import { IContacto } from './../../models/contact.interface';
 import { Component, OnInit } from '@angular/core';
 
 import { Router, NavigationExtras } from '@angular/router';
+import { IRandomContact } from 'src/app/models/randomuser';
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
@@ -10,7 +11,7 @@ import { Router, NavigationExtras } from '@angular/router';
 export class HomePageComponent implements OnInit{
 
   token: string | null=null;
-  contactoSeleccionado: IContacto | undefined;
+  contactoSeleccionado: IRandomContact | undefined;
 
   constructor(private router: Router){
 
@@ -29,11 +30,15 @@ export class HomePageComponent implements OnInit{
 
   navegarAContacts():void{
 
+
     let navigationExtras: NavigationExtras = {
+
       queryParams: {
+
+
         //order: ''
         //filter: 'mujer',
-        sexo: 'todos',
+        gender: 'todos',
       }
     }
 
