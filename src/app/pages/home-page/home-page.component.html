@@ -22,7 +22,7 @@
 <button mat-raised-button color="primary" (click)="navegarAContacts()">Ver todos tus contactos</button>
 <p>Filtros</p>
 <div>
-  <a [routerLink]="['/contacts']" [queryParams]="{sexo: 'female'}" >Amigas |</a>
-  <a [routerLink]="['/contacts']" [queryParams]="{sexo: 'male'}">| Amigos</a>
+  <a [routerLink]="['/dashboard/contacts']" [queryParams]="{sexo: 'female'}" >Amigas |</a>
+  <a [routerLink]="['/dashboard/contacts']" [queryParams]="{sexo: 'male'}">| Amigos</a>
 </div>
 

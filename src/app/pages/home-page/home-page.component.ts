@@ -37,12 +37,12 @@ export class HomePageComponent implements OnInit{
 
 
         //order: ''
-        //filter: 'mujer',
-        gender: 'todos',
+        //filter: '',
+        sexo: 'todos',
       }
     }
 
-    this.router.navigate(['contacts'], navigationExtras);
+    this.router.navigate(['/dashboard/contacts'], navigationExtras);
   }
 
 }
