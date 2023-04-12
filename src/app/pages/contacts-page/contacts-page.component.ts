@@ -12,6 +12,7 @@ import { IRandomContact, Results } from 'src/app/models/randomuser';
 })
 export class ContactsPageComponent implements OnInit{
 
+  cargando: boolean= true;
   filtroSexo: string= 'todos';
   //listaContactos: IContacto[]=[];
   listaRandomContacts: IRandomContact[]=[];
@@ -44,13 +45,17 @@ export class ContactsPageComponent implements OnInit{
                   this.listaRandomContacts.push(randomContact);
                 })
                 console.log(this.listaRandomContacts);
+                this.cargando= false;
               },
               error: (error)=>console.error(`${error}`),
-              complete: () =>console.info('Petición de random contacts terminada')
+              complete: () =>{
+               console.info('Petición de random contacts terminada');
+               this.cargando=false;
+              }
             }
           );
 
-         }
+
       }else{
         //Implementación para obtener la lista de contactos aleatoria
         this.randomUserService.obtenerRandomContacts(10).subscribe(
@@ -63,7 +68,10 @@ export class ContactsPageComponent implements OnInit{
               console.log(this.listaRandomContacts);
             },
             error: (error)=>console.error(`${error}`),
-            complete: () =>console.info('Petición de random contacts terminada')
+            complete: () =>{
+              console.info('Petición de random contacts terminada');
+              this.cargando=false;
+             }
           }
         );
       }
@@ -74,12 +82,8 @@ export class ContactsPageComponent implements OnInit{
             .finally(()=> console.info('Petición de contactos terminada'))
           */
 
-
-
+     }
     });
-
-
-
   }
   //Ejemplo de paso de información entre componentes del ESTADO
   volverHome(contacto: IRandomContact){

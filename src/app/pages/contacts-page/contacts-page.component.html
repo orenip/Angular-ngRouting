@@ -1,7 +1,8 @@
 <h1>Tus contactos</h1>
 
-<div *ngIf="listaRandomContacts.length==0"> 
+<div *ngIf="listaRandomContacts.length==0">
   <mat-spinner></mat-spinner>
+  <h6>Cargando...</h6>
 </div>
 <!-- Listar los contactos y poder navegar al pinchar en uno de ellos al detalle -->
 
@@ -11,7 +12,7 @@
       {{contacto.name.first}}
       {{contacto.name.last}}
      </h6>
-    <button (click)="volverHome(contacto)">Seleccionar como amigo Invisible</button>
+    <button mat-raised-button color="primary" (click)="volverHome(contacto)">Seleccionar como amigo Invisible</button>
   </div>
 </div>
 
