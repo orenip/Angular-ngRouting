@@ -1,5 +1,8 @@
 <h1>Tus contactos</h1>
 
+<div *ngIf="listaRandomContacts.length==0"> 
+  <mat-spinner></mat-spinner>
+</div>
 <!-- Listar los contactos y poder navegar al pinchar en uno de ellos al detalle -->
 
 <div *ngFor="let contacto of listaRandomContacts; let i=index">
